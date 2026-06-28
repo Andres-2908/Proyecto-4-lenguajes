@@ -1,0 +1,18 @@
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/nio4r-2.7.5/ext/nio4r
+C:/Ruby40-x64/bin/ruby.exe extconf.rb
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/nio4r-2.7.5/ext/nio4r
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-13wn5w sitelibdir\=./.gem.20260627-25472-13wn5w clean
+make: *** No hay ninguna regla para construir el objetivo 'clean'.  Alto.
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/nio4r-2.7.5/ext/nio4r
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-13wn5w sitelibdir\=./.gem.20260627-25472-13wn5w
+make: No se hace nada para 'all'.
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/nio4r-2.7.5/ext/nio4r
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-13wn5w sitelibdir\=./.gem.20260627-25472-13wn5w install
+make: No se hace nada para 'install'.
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/nio4r-2.7.5/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20260627-25472-13wn5w sitelibdir\=./.gem.20260627-25472-13wn5w clean
+make: *** No hay ninguna regla para construir el objetivo 'clean'.  Alto.

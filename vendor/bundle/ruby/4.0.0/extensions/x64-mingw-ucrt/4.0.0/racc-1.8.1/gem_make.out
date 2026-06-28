@@ -1,0 +1,19 @@
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/racc-1.8.1/ext/racc/cparse
+C:/Ruby40-x64/bin/ruby.exe extconf.rb
+creating Makefile
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/racc-1.8.1/ext/racc/cparse
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-ouo2ke sitelibdir\=./.gem.20260627-25472-ouo2ke clean
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/racc-1.8.1/ext/racc/cparse
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-ouo2ke sitelibdir\=./.gem.20260627-25472-ouo2ke
+generating cparse-x64-mingw-ucrt.def
+compiling cparse.c
+linking shared-object racc/cparse.so
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/racc-1.8.1/ext/racc/cparse
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-ouo2ke sitelibdir\=./.gem.20260627-25472-ouo2ke install
+/usr/bin/install -c -m 0755 cparse.so ./.gem.20260627-25472-ouo2ke/racc
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/racc-1.8.1/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20260627-25472-ouo2ke sitelibdir\=./.gem.20260627-25472-ouo2ke clean

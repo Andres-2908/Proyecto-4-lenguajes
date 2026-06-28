@@ -1,0 +1,19 @@
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/bindex-0.8.1/ext/skiptrace
+C:/Ruby40-x64/bin/ruby.exe extconf.rb
+creating Makefile
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/bindex-0.8.1/ext/skiptrace
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-73jru5 sitelibdir\=./.gem.20260627-25472-73jru5 clean
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/bindex-0.8.1/ext/skiptrace
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-73jru5 sitelibdir\=./.gem.20260627-25472-73jru5
+generating cruby-x64-mingw-ucrt.def
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/bindex-0.8.1/ext/skiptrace
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-73jru5 sitelibdir\=./.gem.20260627-25472-73jru5 install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20260627-25472-73jru5/skiptrace/internal
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/bindex-0.8.1/ext/skiptrace
+make DESTDIR\= sitearchdir\=./.gem.20260627-25472-73jru5 sitelibdir\=./.gem.20260627-25472-73jru5 clean

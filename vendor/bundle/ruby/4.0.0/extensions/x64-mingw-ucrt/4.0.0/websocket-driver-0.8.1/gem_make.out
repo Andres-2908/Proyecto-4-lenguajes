@@ -1,0 +1,19 @@
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/websocket-driver-0.8.1/ext/websocket-driver
+C:/Ruby40-x64/bin/ruby.exe extconf.rb
+creating Makefile
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/websocket-driver-0.8.1/ext/websocket-driver
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-m90t24 sitelibdir\=./.gem.20260627-25472-m90t24 clean
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/websocket-driver-0.8.1/ext/websocket-driver
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-m90t24 sitelibdir\=./.gem.20260627-25472-m90t24
+generating websocket_mask-x64-mingw-ucrt.def
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/websocket-driver-0.8.1/ext/websocket-driver
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-m90t24 sitelibdir\=./.gem.20260627-25472-m90t24 install
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20260627-25472-m90t24
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/websocket-driver-0.8.1/ext/websocket-driver
+make DESTDIR\= sitearchdir\=./.gem.20260627-25472-m90t24 sitelibdir\=./.gem.20260627-25472-m90t24 clean

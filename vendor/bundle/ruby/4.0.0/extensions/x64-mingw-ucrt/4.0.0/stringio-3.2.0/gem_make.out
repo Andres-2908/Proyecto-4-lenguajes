@@ -1,0 +1,20 @@
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/stringio-3.2.0/ext/stringio
+C:/Ruby40-x64/bin/ruby.exe extconf.rb
+checking for rb_io_mode_t in ruby/io.h... yes
+creating Makefile
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/stringio-3.2.0/ext/stringio
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-ivdf6s sitelibdir\=./.gem.20260627-25472-ivdf6s clean
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/stringio-3.2.0/ext/stringio
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-ivdf6s sitelibdir\=./.gem.20260627-25472-ivdf6s
+generating stringio-x64-mingw-ucrt.def
+compiling stringio.c
+linking shared-object stringio.so
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/stringio-3.2.0/ext/stringio
+make -j4 DESTDIR\= sitearchdir\=./.gem.20260627-25472-ivdf6s sitelibdir\=./.gem.20260627-25472-ivdf6s install
+/usr/bin/install -c -m 0755 stringio.so ./.gem.20260627-25472-ivdf6s
+
+current directory: C:/Users/andre/OneDrive/Escritorio/lenguajes/P4/P4/P4/Proyecto-4-lenguajes/vendor/bundle/ruby/4.0.0/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260627-25472-ivdf6s sitelibdir\=./.gem.20260627-25472-ivdf6s clean
