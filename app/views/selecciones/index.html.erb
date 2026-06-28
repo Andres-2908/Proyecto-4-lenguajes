@@ -1,0 +1,29 @@
+<h1>Selecciones del Mundial FIFA 2026</h1>
+
+<%= link_to "Nueva selección", new_seleccion_path, class: "btn" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>País</th>
+      <th>Grupo</th>
+      <th>Pts</th>
+      <th>PJ</th>
+      <th>DG</th>
+      <th colspan="2">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @selecciones.each do |sel| %>
+      <tr>
+        <td><%= link_to sel.nombre, sel %></td>
+        <td><%= sel.grupo.nombre %></td>
+        <td><%= sel.puntos %></td>
+        <td><%= sel.jugados %></td>
+        <td><%= sel.diferencia_goles %></td>
+        <td><%= link_to "Editar", edit_seleccion_path(sel) %></td>
+        <td><%= button_to "Eliminar", sel, method: :delete, data: { confirm: "¿Estás seguro?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

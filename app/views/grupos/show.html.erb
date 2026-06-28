@@ -1,0 +1,38 @@
+<h1>Grupo <%= @grupo.nombre %></h1>
+
+<%= link_to "Editar grupo", edit_grupo_path(@grupo) %> |
+<%= link_to "Volver a grupos", grupos_path %>
+
+<h2>Tabla de Posiciones</h2>
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Selección</th>
+      <th>PJ</th>
+      <th>G</th>
+      <th>E</th>
+      <th>P</th>
+      <th>GF</th>
+      <th>GC</th>
+      <th>DG</th>
+      <th>Pts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @selecciones.each_with_index do |sel, i| %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%= link_to sel.nombre, sel %></td>
+        <td><%= sel.jugados %></td>
+        <td><%= sel.ganados %></td>
+        <td><%= sel.empatados %></td>
+        <td><%= sel.perdidos %></td>
+        <td><%= sel.goles_a_favor %></td>
+        <td><%= sel.goles_en_contra %></td>
+        <td><%= sel.diferencia_goles %></td>
+        <td><strong><%= sel.puntos %></strong></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

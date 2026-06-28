@@ -1,0 +1,26 @@
+<%= form_with(model: seleccion) do |form| %>
+  <% if seleccion.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(seleccion.errors.count, "error") %> impidieron guardar la selección:</h2>
+      <ul>
+        <% seleccion.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :nombre, "País" %>
+    <%= form.text_field :nombre %>
+  </div>
+
+  <div>
+    <%= form.label :grupo_id, "Grupo" %>
+    <%= form.collection_select :grupo_id, Grupo.all.order(:nombre), :id, :nombre, prompt: "Seleccione un grupo" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,23 @@
+<h1>Grupos del Mundial FIFA 2026</h1>
+
+<%= link_to "Nuevo grupo", new_grupo_path, class: "btn" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Grupo</th>
+      <th>Selecciones</th>
+      <th colspan="2">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grupos.each do |grupo| %>
+      <tr>
+        <td><%= link_to grupo.nombre, grupo %></td>
+        <td><%= grupo.selecciones.count %></td>
+        <td><%= link_to "Editar", edit_grupo_path(grupo) %></td>
+        <td><%= button_to "Eliminar", grupo, method: :delete, data: { confirm: "¿Estás seguro?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
