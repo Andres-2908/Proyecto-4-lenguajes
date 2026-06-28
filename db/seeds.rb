@@ -1,9 +1,53 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+puts "Creando grupos..."
+
+grupos = {}
+('A'..'L').each do |letra|
+  grupos[letra] = Grupo.find_or_create_by!(nombre: letra)
+end
+
+puts "Creando selecciones..."
+
+selecciones_por_grupo = {
+  'A' => %w[México Argentina Nigeria Australia],
+  'B' => %w[España Países\ Bajos Senegal Irán],
+  'C' => %w[Estados\ Unidos Francia Japón Túnez],
+  'D' => %w[Brasil Croacia Marruecos Arabia\ Saudita],
+  'E' => %w[Inglaterra Uruguay Ghana Corea\ del\ Sur],
+  'F' => %w[Portugal Colombia Egipto Irak],
+  'G' => %w[Alemania Suiza Camerún Qatar],
+  'H' => %w[Bélgica Ecuador Argelia Nueva\ Zelanda],
+  'I' => %w[Chile Italia Costa\ de\ Marfil Emiratos\ Árabes],
+  'J' => %w[Canadá Turquía Malí Panamá],
+  'K' => %w[Dinamarca Serbia Togo Uzbekistán],
+  'L' => %w[Perú Austria Zambia Jamaica],
+}
+
+selecciones_por_grupo.each do |letra, nombres|
+  grupo = grupos[letra]
+  nombres.each do |nombre|
+    Seleccion.find_or_create_by!(nombre: nombre) do |s|
+      s.grupo = grupo
+    end
+  end
+end
+
+puts "Creando partidos de fase de grupos..."
+
+Grupo.all.order(:nombre).each do |grupo|
+  equipos = grupo.selecciones.to_a
+  (0...equipos.size).each do |i|
+    (i + 1...equipos.size).each do |j|
+      Partido.find_or_create_by!(
+        grupo: grupo,
+        local: equipos[i],
+        visitante: equipos[j],
+        etapa: :fase_grupos
+      )
+    end
+  end
+end
+
+puts "¡Seeds completados exitosamente!"
+puts "  #{Grupo.count} grupos"
+puts "  #{Seleccion.count} selecciones"
+puts "  #{Partido.count} partidos"
