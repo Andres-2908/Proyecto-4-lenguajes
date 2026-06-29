@@ -1,19 +1,22 @@
 <%= form_with model: partido, url: partido_path(partido), method: :patch do |f| %>
   <% if partido.errors.any? %>
-    <ul>
-      <% partido.errors.full_messages.each do |mensaje| %>
-        <li><%= mensaje %></li>
-      <% end %>
-    </ul>
+    <div class="aviso error">
+      <strong>No se pudo guardar el resultado:</strong>
+      <ul>
+        <% partido.errors.full_messages.each do |mensaje| %>
+          <li><%= mensaje %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
 
-  <p><strong><%= partido.local&.nombre %></strong> vs <strong><%= partido.visitante&.nombre %></strong></p>
+  <p class="partido-titulo"><strong><%= partido.local&.nombre %></strong> vs <strong><%= partido.visitante&.nombre %></strong></p>
 
   <label>Goles <%= partido.local&.nombre %></label>
-  <%= f.number_field :goles_local, min: 0 %>
+  <%= f.number_field :goles_local, min: 0, required: true %>
 
   <label>Goles <%= partido.visitante&.nombre %></label>
-  <%= f.number_field :goles_visitante, min: 0 %>
+  <%= f.number_field :goles_visitante, min: 0, required: true %>
 
   <% unless partido.fase_grupos? %>
     <label>Penales <%= partido.local&.nombre %></label>
