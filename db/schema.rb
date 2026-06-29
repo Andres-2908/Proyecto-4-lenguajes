@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_01_01_000003) do
+ActiveRecord::Schema[8.1].define(version: 2025_01_01_000004) do
   create_table "grupos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "nombre", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_01_01_000003) do
     t.integer "goles_visitante"
     t.integer "grupo_id"
     t.integer "local_id", null: false
+    t.integer "numero"
     t.integer "penales_goles_local"
     t.integer "penales_goles_visitante"
     t.integer "ronda"
@@ -35,6 +36,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_01_01_000003) do
     t.index ["ganador_id"], name: "index_partidos_on_ganador_id"
     t.index ["grupo_id"], name: "index_partidos_on_grupo_id"
     t.index ["local_id"], name: "index_partidos_on_local_id"
+    t.index ["numero"], name: "index_partidos_on_numero", unique: true
     t.index ["visitante_id"], name: "index_partidos_on_visitante_id"
   end
 

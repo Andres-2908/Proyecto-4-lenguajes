@@ -1,0 +1,27 @@
+<%= form_with model: partido, url: partido_path(partido), method: :patch do |f| %>
+  <% if partido.errors.any? %>
+    <ul>
+      <% partido.errors.full_messages.each do |mensaje| %>
+        <li><%= mensaje %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <p><strong><%= partido.local&.nombre %></strong> vs <strong><%= partido.visitante&.nombre %></strong></p>
+
+  <label>Goles <%= partido.local&.nombre %></label>
+  <%= f.number_field :goles_local, min: 0 %>
+
+  <label>Goles <%= partido.visitante&.nombre %></label>
+  <%= f.number_field :goles_visitante, min: 0 %>
+
+  <% unless partido.fase_grupos? %>
+    <label>Penales <%= partido.local&.nombre %></label>
+    <%= f.number_field :penales_goles_local, min: 0 %>
+
+    <label>Penales <%= partido.visitante&.nombre %></label>
+    <%= f.number_field :penales_goles_visitante, min: 0 %>
+  <% end %>
+
+  <p><%= f.submit "guardar" %></p>
+<% end %>

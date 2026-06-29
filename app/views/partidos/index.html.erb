@@ -1,0 +1,25 @@
+<h1>Partidos</h1>
+
+<% @partidos_por_etapa.each do |etapa, partidos| %>
+  <h2><%= nombre_etapa(etapa) %></h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Local</th>
+        <th>Marcador</th>
+        <th>Visitante</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% partidos.each do |partido| %>
+        <tr>
+          <td><%= partido.local&.nombre %></td>
+          <td><%= marcador(partido) %></td>
+          <td><%= partido.visitante&.nombre %></td>
+          <td><%= link_to partido.jugado? ? "editar" : "registrar", edit_partido_path(partido) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

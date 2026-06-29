@@ -12,9 +12,16 @@
   </head>
 
   <body>
+    <nav class="barra">
+      <%= link_to "Grupos", grupos_path %>
+      <%= link_to "Selecciones", selecciones_path %>
+      <%= link_to "Partidos", partidos_path %>
+      <%= link_to "Cuadro", eliminatoria_path %>
+      <%= link_to "Podio", podio_eliminatoria_path %>
+    </nav>
     <main>
-      <% if notice %><p style="color: green"><%= notice %></p><% end %>
-      <% if alert %><p style="color: red"><%= alert %></p><% end %>
+      <% if notice %><p class="aviso ok"><%= notice %></p><% end %>
+      <% if alert %><p class="aviso error"><%= alert %></p><% end %>
       <%= yield %>
     </main>
   </body>

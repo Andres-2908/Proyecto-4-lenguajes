@@ -1,0 +1,31 @@
+<h1>Cuadro de eliminación</h1>
+
+<% unless @cuadro_generado %>
+  <% if @fase_grupos_completa %>
+    <%= button_to "generar cuadro", generar_eliminatoria_path %>
+  <% else %>
+    <p>aún faltan resultados de la fase de grupos</p>
+  <% end %>
+<% end %>
+
+<% if @cuadro_generado %>
+  <div class="bracket">
+    <% @rondas.each do |etapa, partidos| %>
+      <section class="ronda">
+        <h2><%= nombre_etapa(etapa) %></h2>
+        <% partidos.each do |partido| %>
+          <%= link_to edit_partido_path(partido), class: "match" do %>
+            <span class="equipo <%= "ganador" if partido.ganador_id && partido.ganador_id == partido.local_id %>">
+              <span class="nombre"><%= partido.local&.nombre %></span>
+              <span class="goles"><%= partido.goles_local %><% if partido.penales_goles_local %> (<%= partido.penales_goles_local %>)<% end %></span>
+            </span>
+            <span class="equipo <%= "ganador" if partido.ganador_id && partido.ganador_id == partido.visitante_id %>">
+              <span class="nombre"><%= partido.visitante&.nombre %></span>
+              <span class="goles"><%= partido.goles_visitante %><% if partido.penales_goles_visitante %> (<%= partido.penales_goles_visitante %>)<% end %></span>
+            </span>
+          <% end %>
+        <% end %>
+      </section>
+    <% end %>
+  </div>
+<% end %>

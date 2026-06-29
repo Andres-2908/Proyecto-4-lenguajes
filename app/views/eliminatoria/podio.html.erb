@@ -1,0 +1,15 @@
+<h1>Podio</h1>
+
+<p><%= link_to "volver al cuadro", eliminatoria_path %></p>
+
+<% if @campeon %>
+  <ol class="podio">
+    <li class="oro"><span>Campeón</span><strong><%= @campeon.nombre %></strong></li>
+    <li class="plata"><span>Subcampeón</span><strong><%= @subcampeon.nombre %></strong></li>
+    <% if @tercer_lugar %>
+      <li class="bronce"><span>Tercer lugar</span><strong><%= @tercer_lugar.nombre %></strong></li>
+    <% end %>
+  </ol>
+<% else %>
+  <p>el torneo aún no ha terminado</p>
+<% end %>
