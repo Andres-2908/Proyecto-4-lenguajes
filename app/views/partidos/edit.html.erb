@@ -1,5 +1,12 @@
 <h1><%= nombre_etapa(@partido.etapa) %></h1>
 
-<p><%= link_to "volver a partidos", partidos_path %></p>
+<p>
+  <% if @partido.fase_grupos? %>
+    <%= link_to "Volver a partidos del grupo", partidos_path(grupo_id: @partido.grupo_id) %> |
+    <%= link_to "Ver tabla del grupo", grupo_path(@partido.grupo) %>
+  <% else %>
+    <%= link_to "Volver a partidos", partidos_path %>
+  <% end %>
+</p>
 
 <%= render "form", partido: @partido %>
