@@ -60,6 +60,24 @@ select {
   font-weight: 600;
 }
 
+.group-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin: 1em 0;
+}
+
+.group-tabs a {
+  border: 1px solid #1a6fb5;
+  border-radius: 3px;
+  padding: 0.35em 0.65em;
+}
+
+.group-tabs a.active {
+  background: #1a6fb5;
+  color: #fff;
+}
+
 .aviso {
   padding: 0.5em 0.8em;
   border-radius: 3px;
@@ -175,3 +193,7 @@ button:hover {
 .podio .oro { background: #fcf3cf; }
 .podio .plata { background: #ecf0f1; }
 .podio .bronce { background: #f6ddcc; }
+
+.partido-titulo {
+  font-size: 1.15em;
+}
