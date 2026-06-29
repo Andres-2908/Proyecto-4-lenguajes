@@ -7,6 +7,7 @@ class GruposController < ApplicationController
 
   def show
     @selecciones = @grupo.tabla_posiciones
+    @partidos = @grupo.partidos.includes(:local, :visitante).order(:id)
   end
 
   def new
