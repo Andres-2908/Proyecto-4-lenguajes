@@ -33,19 +33,7 @@ end
 
 puts "Creando partidos de fase de grupos..."
 
-Grupo.all.order(:nombre).each do |grupo|
-  equipos = grupo.selecciones.to_a
-  (0...equipos.size).each do |i|
-    (i + 1...equipos.size).each do |j|
-      Partido.find_or_create_by!(
-        grupo: grupo,
-        local: equipos[i],
-        visitante: equipos[j],
-        etapa: :fase_grupos
-      )
-    end
-  end
-end
+GeneradorPartidosFaseGrupos.call
 
 puts "¡Seeds completados exitosamente!"
 puts "  #{Grupo.count} grupos"
