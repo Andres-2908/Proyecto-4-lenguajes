@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :grupos
   resources :selecciones
-  resources :partidos, only: [:index, :edit, :update]
+  resources :partidos, only: [:index, :edit, :update] do
+    post :generar_fase_grupos, on: :collection
+  end
 
   get "eliminatoria", to: "eliminatoria#show"
   post "eliminatoria/generar", to: "eliminatoria#generar", as: :generar_eliminatoria
