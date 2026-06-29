@@ -1,25 +1,84 @@
 <h1>Partidos</h1>
 
-<% @partidos_por_etapa.each do |etapa, partidos| %>
-  <h2><%= nombre_etapa(etapa) %></h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Local</th>
-        <th>Marcador</th>
-        <th>Visitante</th>
-        <th>Acción</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% partidos.each do |partido| %>
-        <tr>
-          <td><%= partido.local&.nombre %></td>
-          <td><%= marcador(partido) %></td>
-          <td><%= partido.visitante&.nombre %></td>
-          <td><%= link_to partido.jugado? ? "editar" : "registrar", edit_partido_path(partido) %></td>
-        </tr>
+<section>
+  <h2>Fase de grupos</h2>
+
+  <%= button_to "Generar partidos de fase de grupos", generar_fase_grupos_partidos_path, method: :post, class: "btn" %>
+
+  <% if @grupos.any? %>
+    <nav class="group-tabs" aria-label="Grupos">
+      <% @grupos.each do |grupo| %>
+        <%= link_to "Grupo #{grupo.nombre}",
+                    partidos_path(grupo_id: grupo.id),
+                    class: grupo == @grupo ? "active" : nil %>
       <% end %>
-    </tbody>
-  </table>
-<% end %>
+    </nav>
+  <% end %>
+
+  <% if @grupo.present? %>
+    <h3>Partidos del Grupo <%= @grupo.nombre %></h3>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Local</th>
+          <th>Marcador</th>
+          <th>Visitante</th>
+          <th>Estado</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @partidos_fase_grupos.each do |partido| %>
+          <tr>
+            <td><%= partido.local&.nombre %></td>
+            <td><%= marcador(partido) %></td>
+            <td><%= partido.visitante&.nombre %></td>
+            <td><%= partido.jugado? ? "Registrado" : "Pendiente" %></td>
+            <td>
+              <% if partido.jugado? %>
+                Resultado cerrado
+              <% else %>
+                <%= link_to "Registrar resultado", edit_partido_path(partido) %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No hay grupos registrados</p>
+  <% end %>
+</section>
+
+<section>
+  <h2>Eliminación directa</h2>
+
+  <% if @partidos_eliminatoria.any? %>
+    <% @partidos_eliminatoria.each do |etapa, partidos| %>
+      <h3><%= nombre_etapa(etapa) %></h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Local</th>
+            <th>Marcador</th>
+            <th>Visitante</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% partidos.each do |partido| %>
+            <tr>
+              <td><%= partido.local&.nombre %></td>
+              <td><%= marcador(partido) %></td>
+              <td><%= partido.visitante&.nombre %></td>
+              <td><%= link_to partido.jugado? ? "Editar" : "Registrar", edit_partido_path(partido) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  <% else %>
+    <p>La eliminación directa se generará cuando la fase de grupos esté completa.</p>
+  <% end %>
+</section>
