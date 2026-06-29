@@ -1,7 +1,8 @@
 <h1>Grupo <%= @grupo.nombre %></h1>
 
 <%= link_to "Editar grupo", edit_grupo_path(@grupo) %> |
-<%= link_to "Volver a grupos", grupos_path %>
+<%= link_to "Volver a grupos", grupos_path %> |
+<%= link_to "Partidos del grupo", partidos_path(grupo_id: @grupo.id) %>
 
 <h2>Tabla de Posiciones</h2>
 <table>
@@ -32,6 +33,37 @@
         <td><%= sel.goles_en_contra %></td>
         <td><%= sel.diferencia_goles %></td>
         <td><strong><%= sel.puntos %></strong></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Partidos del grupo</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Local</th>
+      <th>Marcador</th>
+      <th>Visitante</th>
+      <th>Estado</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @partidos.each do |partido| %>
+      <tr>
+        <td><%= partido.local.nombre %></td>
+        <td><%= marcador(partido) %></td>
+        <td><%= partido.visitante.nombre %></td>
+        <td><%= partido.jugado? ? "Registrado" : "Pendiente" %></td>
+        <td>
+          <% if partido.jugado? %>
+            Resultado cerrado
+          <% else %>
+            <%= link_to "Registrar resultado", edit_partido_path(partido) %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
