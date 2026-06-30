@@ -25,6 +25,9 @@ class Partido < ApplicationRecord
   validate :resultado_completo
   validate :equipos_del_grupo_en_fase_grupos
   validate :partido_de_grupo_no_duplicado
+  validate :penales_solo_si_empate
+  validate :penales_no_empatados
+  validate :ambos_penales_o_ninguno
 
   def jugado?
     goles_local.present? && goles_visitante.present?
@@ -105,6 +108,24 @@ class Partido < ApplicationRecord
     if local.grupo_id != grupo_id || visitante.grupo_id != grupo_id
       errors.add(:base, 'Las selecciones deben pertenecer al grupo del partido')
     end
+  end
+
+  def penales_solo_si_empate
+    return if penales_goles_local.blank? && penales_goles_visitante.blank?
+    return if empate?
+    errors.add(:base, 'Los penales solo se permiten cuando hay empate en el marcador')
+  end
+
+  def penales_no_empatados
+    return if penales_goles_local.blank? || penales_goles_visitante.blank?
+    return if penales_goles_local != penales_goles_visitante
+    errors.add(:base, 'Los penales no pueden quedar empatados, debe haber un ganador')
+  end
+
+  def ambos_penales_o_ninguno
+    return if penales_goles_local.blank? && penales_goles_visitante.blank?
+    return if penales_goles_local.present? && penales_goles_visitante.present?
+    errors.add(:base, 'Debe registrar los penales de ambas selecciones')
   end
 
   def partido_de_grupo_no_duplicado
