@@ -66,7 +66,7 @@ class Partido < ApplicationRecord
   def determinar_ganador!
     return nil unless jugado?
 
-    if etapa == 'fase_grupos'
+    if fase_grupos?
       update(ganador_id: nil)
       return nil
     end

@@ -31,6 +31,9 @@ selecciones_por_grupo.each do |letra, nombres|
   end
 end
 
+puts "Limpiando datos previos..."
+Partido.where.not(etapa: :fase_grupos).destroy_all
+
 puts "Creando partidos de fase de grupos..."
 
 GeneradorPartidosFaseGrupos.call

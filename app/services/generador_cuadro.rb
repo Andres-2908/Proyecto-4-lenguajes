@@ -1,7 +1,8 @@
 class GeneradorCuadro
   def self.generar
     return false unless fase_grupos_completa?
-    return false if Partido.where.not(etapa: :fase_grupos).exists?
+
+    Partido.where.not(etapa: :fase_grupos).destroy_all
 
     CalculadorPosicionesGrupo.calcular_todos
     clasificacion = ServicioClasificacion.clasificados
